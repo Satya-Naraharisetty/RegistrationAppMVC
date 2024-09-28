@@ -13,6 +13,6 @@
 <body>
 <h1>failed to register</h1>
 <% String name = (String) session.getAttribute("UName"); %>
-<h2><%= name%>, you have failed to this webapp</h2>
+<h2><%= name%>, you have failed to register to this webapp</h2>
 </body>
 </html>

@@ -1,9 +1,6 @@
 package com.mvc.registrationappmvc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JDBCUtils {
 
@@ -11,8 +8,9 @@ public class JDBCUtils {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        System.out.println("Driver registered");
     }
 
     public static Connection getDBConnection() throws SQLException {
@@ -24,7 +22,11 @@ public class JDBCUtils {
     }
 
     public static void CloseResources(PreparedStatement pstmt, Connection dbConn) throws SQLException {
-        pstmt.close();
-        dbConn.close();
+        if (dbConn != null){
+            dbConn.close();
+        }
+        if (pstmt != null){
+            pstmt.close();
+        }
     }
 }

@@ -68,13 +68,13 @@ public class Model {
             row = pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         finally {
             try {
                 JDBCUtils.CloseResources(pstmt, dbConn);
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
         return row;
